@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import styles from  './app.module.css';
+
+const useStyles = makeStyles({
+  btn: {
+   '&.MuiButton-root': {
+    padding: '6px 16px',
+    textTransform: 'lowercase'
+   },
+   '&.MuiButton-contained': {
+     background: 'yellow'
+   },
+    '&.MuiButton-contained:hover': {
+     background: 'green',
+     color: 'white'
+    }
+  },
+});
 
 function App() {
+  const classes = useStyles()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.root}>
+       <Button 
+       variant="contained"
+        className={classes.btn}
+       >
+         TITLE BUTTON
+       </Button>
     </div>
   );
 }
